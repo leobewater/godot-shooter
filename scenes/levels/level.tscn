@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bdkrhht1a0pw7"]
+[gd_scene load_steps=12 format=3 uid="uid://bdkrhht1a0pw7"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_6xh1h"]
 [ext_resource type="PackedScene" uid="uid://b6wcj4d123q6h" path="res://scenes/objects/gate.tscn" id="2_1xq56"]
@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://d1fmay74ohshl" path="res://graphics/decals/moss/moss_3.png" id="6_kjs4b"]
 [ext_resource type="Texture2D" uid="uid://c81n5k8nd8mdt" path="res://graphics/decals/moss/moss_4.png" id="7_3mrsu"]
 [ext_resource type="Texture2D" uid="uid://bxpcerrvbisuv" path="res://graphics/decals/moss/moss_5.png" id="8_1xhk0"]
+
+[sub_resource type="TileSet" id="TileSet_gg6db"]
+tile_size = Vector2i(390, 390)
 
 [node name="Level" type="Node2D"]
 show_behind_parent = true
@@ -48,6 +51,10 @@ texture = ExtResource("7_3mrsu")
 [node name="Moss5" type="Sprite2D" parent="Ground"]
 position = Vector2(-1607, 212)
 texture = ExtResource("8_1xhk0")
+
+[node name="TileMap" type="TileMap" parent="Ground"]
+tile_set = SubResource("TileSet_gg6db")
+format = 2
 
 [node name="Gate" parent="." instance=ExtResource("2_1xq56")]
 
