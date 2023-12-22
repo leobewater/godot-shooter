@@ -58,7 +58,7 @@ texture_repeat = 2
 position = Vector2(400, 348)
 texture = ExtResource("2_5d5lr")
 region_enabled = true
-region_rect = Rect2(-979.41, -403.109, 7369.05, 4108.9)
+region_rect = Rect2(-5422, -3068, 20000, 7300)
 
 [node name="Decoration" type="Sprite2D" parent="Ground"]
 modulate = Color(0.862745, 1, 0.784314, 1)
