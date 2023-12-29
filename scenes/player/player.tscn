@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://be80jbs1qo0h5"]
+[gd_scene load_steps=8 format=3 uid="uid://be80jbs1qo0h5"]
 
 [ext_resource type="Texture2D" uid="uid://b8b34btqarbq6" path="res://graphics/player/player.png" id="1_a4qc3"]
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_h7w3l"]
@@ -7,13 +7,23 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_6yfsx"]
 radius = 66.0681
 
+[sub_resource type="Gradient" id="Gradient_rymvo"]
+colors = PackedColorArray(0.117647, 1, 1, 0.384314, 0.541176, 1, 1, 0.419608)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ap8w3"]
+gradient = SubResource("Gradient_rymvo")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yrnkj"]
 particle_flag_disable_z = true
 direction = Vector3(1, 2.08165e-12, 2.08165e-12)
-spread = 15.0
-initial_velocity_min = 33.0
-initial_velocity_max = 96.0
+spread = 12.0
+initial_velocity_min = 750.0
+initial_velocity_max = 1200.0
 gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+scale_min = 0.3
+scale_max = 0.8
+color = Color(0.117647, 1, 1, 0.384314)
+color_ramp = SubResource("GradientTexture1D_ap8w3")
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 31
@@ -51,6 +61,7 @@ position = Vector2(129, 20)
 emitting = false
 process_material = SubResource("ParticleProcessMaterial_yrnkj")
 texture = ExtResource("3_f2qvq")
+lifetime = 0.15
 one_shot = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
