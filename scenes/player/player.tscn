@@ -1,10 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://be80jbs1qo0h5"]
+[gd_scene load_steps=6 format=3 uid="uid://be80jbs1qo0h5"]
 
 [ext_resource type="Texture2D" uid="uid://b8b34btqarbq6" path="res://graphics/player/player.png" id="1_a4qc3"]
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_h7w3l"]
+[ext_resource type="Texture2D" uid="uid://df8bp807b8203" path="res://graphics/decals/white.png" id="3_f2qvq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6yfsx"]
 radius = 66.0681
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yrnkj"]
+particle_flag_disable_z = true
+direction = Vector3(1, 2.08165e-12, 2.08165e-12)
+spread = 15.0
+initial_velocity_min = 33.0
+initial_velocity_max = 96.0
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 31
@@ -36,6 +45,13 @@ position = Vector2(126, 12)
 
 [node name="Marker2D3" type="Marker2D" parent="LaserStartPositions"]
 position = Vector2(126, 27)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(129, 20)
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_yrnkj")
+texture = ExtResource("3_f2qvq")
+one_shot = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="GrenadeReloadTimer" to="." method="_on_grenade_reload_timer_timeout"]
