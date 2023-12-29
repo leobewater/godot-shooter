@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://sgx7rts5paub"]
+
+[ext_resource type="Texture2D" uid="uid://bxf2ql35wedq0" path="res://graphics/objects/wall_lamp.png" id="1_dcj0w"]
+
+[node name="WallLight" type="StaticBody2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-291, -79, 282, -77, 330, -67, 367, -44, 407, 3, 418, 18, 393, 68, 376, 77, 214, 78, -235, 77, -391, 74, -418, 18, -396, -15, -360, -50, -332, -66)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_dcj0w")
+region_enabled = true
+region_rect = Rect2(-19.5, -17, 879, 198)
