@@ -41,3 +41,10 @@ func _on_house_player_entered():
 	# camera zooom in with tween
 	var tween = get_tree().create_tween()
 	tween.tween_property(camera_2d, 'zoom', Vector2(1,1), 1)
+
+
+func _on_house_player_left():
+	print("Player has left the house in level")
+	# camera zooom out with tween
+	var tween = get_tree().create_tween()
+	tween.tween_property(camera_2d, 'zoom', Vector2(0.6, 0.6), 1)

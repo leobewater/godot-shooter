@@ -346,3 +346,4 @@ position = Vector2(1646, 1643)
 position = Vector2(-410, 1643)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

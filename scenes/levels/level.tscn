@@ -138,6 +138,7 @@ color = Color(0.505882, 0.345098, 0.419608, 1)
 energy = 0.7
 
 [connection signal="player_entered" from="Ground/House" to="." method="_on_house_player_entered"]
+[connection signal="player_left" from="Ground/House" to="." method="_on_house_player_left"]
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
 [connection signal="grenade" from="Player" to="." method="_on_player_grenade"]
 [connection signal="laser" from="Player" to="." method="_on_player_laser"]
