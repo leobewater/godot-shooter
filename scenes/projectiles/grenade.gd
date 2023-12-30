@@ -5,5 +5,6 @@ extends RigidBody2D
 const speed = 750
 
 
+# this being called from the blinking animation
 func explode():
 	animation_player.play("explosion")
