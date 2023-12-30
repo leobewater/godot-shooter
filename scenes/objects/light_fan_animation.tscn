@@ -206,7 +206,7 @@ animations = [{
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_axwvd")
 autoplay = "default"
-frame_progress = 0.747414
+frame_progress = 0.640143
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 energy = 4.0
