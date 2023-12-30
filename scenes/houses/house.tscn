@@ -325,6 +325,20 @@ layer_2/tile_data = PackedInt32Array(262150, 327680, 8, 196614, 65536, 6, 131078
 position = Vector2(3633, 308)
 rotation = 1.5708
 
+[node name="SimpleLight2" parent="." instance=ExtResource("2_xhrqx")]
+position = Vector2(-1283, -150)
+rotation = -1.5708
+
+[node name="SimpleLight3" parent="." instance=ExtResource("2_xhrqx")]
+position = Vector2(640, 1682)
+rotation = -3.14159
+
 [node name="WallLight" parent="." instance=ExtResource("3_gbnnk")]
 position = Vector2(3631, 1077)
 rotation = -1.5708
+
+[node name="WallLight2" parent="." instance=ExtResource("3_gbnnk")]
+position = Vector2(1646, 1643)
+
+[node name="WallLight3" parent="." instance=ExtResource("3_gbnnk")]
+position = Vector2(-410, 1643)
