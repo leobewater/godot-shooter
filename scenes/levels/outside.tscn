@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://ynan31edrx6i"]
+[gd_scene load_steps=19 format=3 uid="uid://ynan31edrx6i"]
 
 [ext_resource type="PackedScene" uid="uid://bdkrhht1a0pw7" path="res://scenes/levels/level.tscn" id="1_aeg8c"]
 [ext_resource type="Texture2D" uid="uid://dx3urtars2h22" path="res://graphics/ground/stones.png" id="2_0q3w5"]
+[ext_resource type="Script" path="res://scenes/levels/outside.gd" id="2_t1heb"]
 [ext_resource type="PackedScene" uid="uid://b6wcj4d123q6h" path="res://scenes/objects/gate.tscn" id="2_ve75d"]
 [ext_resource type="Texture2D" uid="uid://chyvruexwr78t" path="res://graphics/decals/dirt_patch.png" id="3_mk4wv"]
 [ext_resource type="Texture2D" uid="uid://beegfxxmcssfc" path="res://graphics/tilesets/outside_walls.png" id="4_wbiew"]
@@ -50,6 +51,7 @@ sources/0 = SubResource("TileSetAtlasSource_gtm0f")
 sources/1 = SubResource("TileSetAtlasSource_yw407")
 
 [node name="Outside" instance=ExtResource("1_aeg8c")]
+script = ExtResource("2_t1heb")
 
 [node name="Soil" type="Sprite2D" parent="Ground" index="0"]
 texture_repeat = 2
@@ -116,3 +118,5 @@ position = Vector2(-1909, 1559)
 
 [node name="Gate" parent="." index="1" instance=ExtResource("2_ve75d")]
 position = Vector2(156, -201)
+
+[connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
