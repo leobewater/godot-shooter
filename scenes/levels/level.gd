@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var camera_2d = $Player/Camera2D
+
 # preload laser scene
 var laser_scene: PackedScene = preload("res://scenes/projectiles/laser.tscn")
 var grenade_scene: PackedScene = preload("res://scenes/projectiles/grenade.tscn")
@@ -31,3 +33,11 @@ func _on_player_grenade(pos, direction):
 	
 	# add grenade instance to a Node2D
 	$Projectiles.add_child(grenade)
+
+
+# when player enters the house
+func _on_house_player_entered():
+	print("Player has entered house in level")
+	# camera zooom in with tween
+	var tween = get_tree().create_tween()
+	tween.tween_property(camera_2d, 'zoom', Vector2(1,1), 1)
