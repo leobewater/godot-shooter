@@ -8,12 +8,16 @@ signal grenade(pos, direction)
 var can_laser: bool = true
 var can_grenade: bool = true
 
+@export var max_speed: int = 500
+var speed: int = max_speed
+
+
 func _process(_delta):
 	# Go to Project and create an input map first
 	var direction = Input.get_vector("left", "right", "up", "down")
 	
 	# move_and_slide auto uses velocity which auto uses delta
-	velocity = direction * 500
+	velocity = direction * speed
 	move_and_slide()
 	
 	# rotate player by facing the mouse pointer
@@ -47,10 +51,12 @@ func _process(_delta):
 		# emit signal and marker 0 global position
 		var pos = $LaserStartPositions.get_children()[0].global_position
 		grenade.emit(pos, player_direction)
-		
+
+
 # when timer is finished
 func _on_timer_timeout():
 	can_laser = true
-
+	
+	
 func _on_grenade_reload_timer_timeout():
 	can_grenade = true
