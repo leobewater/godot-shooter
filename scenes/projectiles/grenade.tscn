@@ -42,6 +42,18 @@ tracks/1/keys = {
 "method": &"queue_free"
 }]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.9),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_behi8"]
 length = 0.001
@@ -72,7 +84,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_lavw3"]
 resource_name = "Blinking"
-length = 1.2
+length = 2.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -80,10 +92,24 @@ tracks/0/path = NodePath("PointLight2D:energy")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, 10.0, 0.0, 10.0, 0.0]
+"values": [0.0, 10.0, 0.0, 10.0, 0.0, 10.0, 0.0, 10.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"explode"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bbcvu"]
@@ -109,7 +135,6 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_65dhq")
 
 [node name="Explosion" type="Sprite2D" parent="."]
-visible = false
 texture = ExtResource("3_2vbir")
 hframes = 8
 vframes = 8
@@ -118,7 +143,7 @@ vframes = 8
 libraries = {
 "": SubResource("AnimationLibrary_bbcvu")
 }
-autoplay = "explosion"
+autoplay = "Blinking"
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(1, 0, 0, 1)
