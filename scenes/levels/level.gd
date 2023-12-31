@@ -10,6 +10,11 @@ var laser_scene: PackedScene = preload("res://scenes/projectiles/laser.tscn")
 var grenade_scene: PackedScene = preload("res://scenes/projectiles/grenade.tscn")
 
 
+func _ready():
+	print("level")
+	print(Globals.laser_amount)
+	
+	
 func _on_player_laser(pos, direction):
 	# create instance of laser scene
 	var laser = laser_scene.instantiate() as Area2D

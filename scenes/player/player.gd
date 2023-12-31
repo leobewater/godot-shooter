@@ -12,6 +12,11 @@ var can_grenade: bool = true
 var speed: int = max_speed
 
 
+func _ready():
+	print("player")
+	print(Globals.laser_amount)
+
+
 func _process(_delta):
 	# Go to Project and create an input map first
 	var direction = Input.get_vector("left", "right", "up", "down")
