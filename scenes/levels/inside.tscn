@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cvbd266gvnyid"]
+[gd_scene load_steps=10 format=3 uid="uid://cvbd266gvnyid"]
 
 [ext_resource type="PackedScene" uid="uid://bdkrhht1a0pw7" path="res://scenes/levels/level.tscn" id="1_neitl"]
 [ext_resource type="Texture2D" uid="uid://dsjbgrrnkilhf" path="res://graphics/ground/dirt.png" id="2_i5cmh"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://sgx7rts5paub" path="res://scenes/objects/wall_light.tscn" id="4_l5bat"]
 [ext_resource type="PackedScene" uid="uid://casv578bwmd1t" path="res://scenes/objects/simple_light.tscn" id="5_g0040"]
 [ext_resource type="Texture2D" uid="uid://dmhh0tmm7y3po" path="res://graphics/lights/overlays/infrastructure.png" id="5_k7fyb"]
+[ext_resource type="Texture2D" uid="uid://dmr1lrdvrn1wr" path="res://graphics/lights/textures/circle.png" id="6_mdord"]
 [ext_resource type="Texture2D" uid="uid://c22b7ic23u0su" path="res://graphics/lights/overlays/hole.png" id="6_u73qo"]
 
 [node name="Inside" instance=ExtResource("1_neitl")]
@@ -67,7 +68,11 @@ metadata/_edit_group_ = true
 [node name="Camera2D" parent="Player" index="7"]
 position = Vector2(10, -96)
 
-[node name="Lights" type="Node2D" parent="." index="4"]
+[node name="PointLight2D" type="PointLight2D" parent="Player" index="8"]
+texture = ExtResource("6_mdord")
+texture_scale = 3.0
+
+[node name="Lights" type="Node2D" parent="." index="3"]
 metadata/_edit_lock_ = true
 
 [node name="LightFanAnimation" parent="Lights" index="0" instance=ExtResource("4_huah5")]
@@ -99,3 +104,8 @@ modulate = Color(1, 0.611765, 0.501961, 0.0470588)
 position = Vector2(3194, 1517)
 scale = Vector2(3, 3)
 texture = ExtResource("6_u73qo")
+
+[node name="DirectionalLight2D2" type="DirectionalLight2D" parent="." index="4"]
+color = Color(0.388235, 0.654902, 0.545098, 1)
+blend_mode = 1
+metadata/_edit_lock_ = true
