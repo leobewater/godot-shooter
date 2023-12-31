@@ -12,11 +12,6 @@ var can_grenade: bool = true
 var speed: int = max_speed
 
 
-func _ready():
-	print("player")
-	print(Globals.laser_amount)
-
-
 func _process(_delta):
 	# Go to Project and create an input map first
 	var direction = Input.get_vector("left", "right", "up", "down")
@@ -32,7 +27,9 @@ func _process(_delta):
 	var player_direction = (get_global_mouse_position() - position).normalized()
 	
 	# laser shooting input
-	if Input.is_action_pressed("primary action") and can_laser:
+	if Input.is_action_pressed("primary action") and can_laser and Globals.laser_amount > 0:
+		Globals.laser_amount -= 1
+		
 		# show laser particle
 		gpu_particles_2d.emitting = true
 		
