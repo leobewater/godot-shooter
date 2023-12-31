@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://cvbd266gvnyid"]
+[gd_scene load_steps=12 format=3 uid="uid://cvbd266gvnyid"]
 
 [ext_resource type="PackedScene" uid="uid://bdkrhht1a0pw7" path="res://scenes/levels/level.tscn" id="1_neitl"]
+[ext_resource type="Script" path="res://scenes/levels/inside.gd" id="2_f3nfq"]
 [ext_resource type="Texture2D" uid="uid://dsjbgrrnkilhf" path="res://graphics/ground/dirt.png" id="2_i5cmh"]
 [ext_resource type="TileSet" uid="uid://dblsagdnvogp" path="res://scenes/levels/house.tres" id="2_yqgmr"]
 [ext_resource type="PackedScene" uid="uid://v8j1toqn1jlr" path="res://scenes/objects/light_fan_animation.tscn" id="4_huah5"]
@@ -14,6 +15,7 @@
 size = Vector2(302, 764.5)
 
 [node name="Inside" instance=ExtResource("1_neitl")]
+script = ExtResource("2_f3nfq")
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground" index="0"]
 modulate = Color(1, 1, 1, 0.152941)
@@ -113,8 +115,10 @@ color = Color(0.388235, 0.654902, 0.545098, 1)
 blend_mode = 1
 metadata/_edit_lock_ = true
 
-[node name="Area2D" type="Area2D" parent="." index="5"]
+[node name="ExitGateArea" type="Area2D" parent="." index="5"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitGateArea" index="0"]
 position = Vector2(7583, 1169.75)
 shape = SubResource("RectangleShape2D_yfw6m")
+
+[connection signal="body_entered" from="ExitGateArea" to="." method="_on_exit_gate_area_body_entered"]
