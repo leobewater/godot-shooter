@@ -1,35 +1,69 @@
-[gd_scene load_steps=2 format=3 uid="uid://bo6u5rh7c1tyd"]
+[gd_scene load_steps=4 format=3 uid="uid://bo6u5rh7c1tyd"]
 
 [ext_resource type="Texture2D" uid="uid://b55hoqbveue3m" path="res://graphics/ui/bullet.png" id="1_8wdoy"]
+[ext_resource type="Theme" uid="uid://do3igh3fwnl1a" path="res://scenes/ui/main_theme.tres" id="1_x0jt1"]
+[ext_resource type="Texture2D" uid="uid://cylla8as03clg" path="res://graphics/ui/grenade.png" id="2_lmkxw"]
 
 [node name="UI" type="CanvasLayer"]
 
 [node name="LaserCounter" type="Control" parent="."]
 layout_mode = 3
 anchor_left = 0.01
-anchor_top = 0.92
+anchor_top = 0.9
 anchor_right = 0.01
 anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 8
+offset_top = -25.6
+offset_right = 40.0
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="LaserCounter"]
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -27.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 
 [node name="Label" type="Label" parent="LaserCounter/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("1_x0jt1")
 text = "20"
+horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="LaserCounter/VBoxContainer"]
 layout_mode = 2
 texture = ExtResource("1_8wdoy")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="GrenadeCounter" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 0.06
+anchor_top = 0.92
+anchor_right = 0.07
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GrenadeCounter"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="GrenadeCounter/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_x0jt1")
+text = "5"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="GrenadeCounter/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_lmkxw")
 expand_mode = 4
 stretch_mode = 4
