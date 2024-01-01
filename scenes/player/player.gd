@@ -26,7 +26,7 @@ func _process(_delta):
 	# calculate the direction of the mouse pointer
 	var player_direction = (get_global_mouse_position() - position).normalized()
 	
-	# laser shooting input
+	# Shoot Laser
 	if Input.is_action_pressed("primary action") and can_laser and Globals.laser_amount > 0:
 		Globals.laser_amount -= 1
 		
@@ -46,8 +46,11 @@ func _process(_delta):
 		
 		# emit signal and emit the global position we selected
 		laser.emit(selected_laser.global_position, player_direction)
+	
+	# shoot Grenade
+	if Input.is_action_pressed("secondary action") and can_grenade and Globals.grenade_amount > 0:
+		Globals.grenade_amount -= 1
 		
-	if Input.is_action_pressed("secondary action") and can_grenade:
 		can_grenade = false
 		$GrenadeReloadTimer.start()
 		# emit signal and marker 0 global position

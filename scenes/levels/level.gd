@@ -3,6 +3,7 @@ class_name LevelParent
 
 @onready var camera_2d = $Player/Camera2D
 @onready var player = $Player
+@onready var ui = $UI
 
 
 # preload laser scene
@@ -26,6 +27,9 @@ func _on_player_laser(pos, direction):
 	
 	# add laser instance to a Node2D
 	$Projectiles.add_child(laser)
+	
+	# update UI label
+	ui.update_laser_text()
 
 
 func _on_player_grenade(pos, direction):
@@ -38,6 +42,9 @@ func _on_player_grenade(pos, direction):
 	
 	# add grenade instance to a Node2D
 	$Projectiles.add_child(grenade)
+
+	# update UI label
+	ui.update_grenade_text()
 
 
 # when player enters the house

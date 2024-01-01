@@ -1,11 +1,13 @@
 extends CanvasLayer
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+@onready var laser_label: Label = $LaserCounter/VBoxContainer/Label
+@onready var grenade_label = $GrenadeCounter/VBoxContainer/Label
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func update_laser_text():
+	laser_label.text = str(Globals.laser_amount)
+
+
+func update_grenade_text():
+	grenade_label.text = str(Globals.grenade_amount)
