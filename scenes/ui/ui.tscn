@@ -33,7 +33,7 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="LaserCounter/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_x0jt1")
-text = "20"
+text = "00"
 horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="LaserCounter/VBoxContainer"]
@@ -63,7 +63,7 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="GrenadeCounter/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_x0jt1")
-text = "5"
+text = "00"
 horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="GrenadeCounter/VBoxContainer"]
