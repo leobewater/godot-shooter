@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cvbd266gvnyid"]
+[gd_scene load_steps=13 format=3 uid="uid://cvbd266gvnyid"]
 
 [ext_resource type="PackedScene" uid="uid://bdkrhht1a0pw7" path="res://scenes/levels/level.tscn" id="1_neitl"]
 [ext_resource type="Script" path="res://scenes/levels/inside.gd" id="2_f3nfq"]
@@ -10,12 +10,17 @@
 [ext_resource type="Texture2D" uid="uid://dmhh0tmm7y3po" path="res://graphics/lights/overlays/infrastructure.png" id="5_k7fyb"]
 [ext_resource type="Texture2D" uid="uid://dmr1lrdvrn1wr" path="res://graphics/lights/textures/circle.png" id="6_mdord"]
 [ext_resource type="Texture2D" uid="uid://c22b7ic23u0su" path="res://graphics/lights/overlays/hole.png" id="6_u73qo"]
+[ext_resource type="PackedScene" uid="uid://bx1t36y05c2v2" path="res://scenes/items/item.tscn" id="11_jtcr5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yfw6m"]
 size = Vector2(302, 764.5)
 
 [node name="Inside" instance=ExtResource("1_neitl")]
 script = ExtResource("2_f3nfq")
+
+[node name="Ground" parent="." index="0"]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground" index="0"]
 modulate = Color(1, 1, 1, 0.152941)
@@ -24,7 +29,6 @@ position = Vector2(2944, 2092)
 texture = ExtResource("2_i5cmh")
 region_enabled = true
 region_rect = Rect2(-2123.82, -805.1, 15000, 10000)
-metadata/_edit_lock_ = true
 
 [node name="TileMap" type="TileMap" parent="Ground" index="1"]
 position = Vector2(-11, 0)
@@ -36,7 +40,6 @@ layer_1/name = "Outer Walls"
 layer_1/tile_data = PackedInt32Array(-131061, 327680, 0, 19, 327680, 0, 18, 262144, 0, 17, 262144, 0, 16, 262144, 0, 15, 262144, 0, 14, 262144, 0, 13, 262144, 0, -131062, 262144, 0, -131063, 262144, 0, -131064, 262144, 0, -131065, 262144, 0, -131066, 262144, 0, -131067, 262144, 0, -131068, 262144, 0, -131069, 262144, 0, -131070, 262144, 0, -131071, 262144, 0, -131072, 196608, 0, -65536, 196608, 1, 0, 327680, 2, 65535, 262144, 2, 65534, 262144, 2, 65532, 196608, 0, 65533, 262144, 2, 131068, 327680, 1, 196604, 327680, 1, 262140, 327680, 1, 327676, 327680, 1, 393212, 327680, 1, 458748, 196608, 2, 524287, 196608, 2, 458749, 262144, 0, 458750, 262144, 0, 458751, 327680, 0, 458752, 327680, 0, 524288, 196608, 1, 589824, 196608, 2, 589825, 262144, 2, 589826, 262144, 2, 589827, 262144, 2, 589828, 262144, 2, 589829, 262144, 2, 589830, 262144, 2, 589831, 262144, 2, 589832, 262144, 2, 589833, 262144, 2, 589834, 327680, 2, 524298, 196608, 1, 458762, 196608, 0, 458764, 327680, 2, 458763, 262144, 0, 393228, 196608, 1, 327692, 196608, 0, 327693, 262144, 0, 327694, 262144, 0, 327695, 262144, 0, 327696, 262144, 0, 327697, 262144, 0, 327698, 262144, 0, 327699, 327680, 2, 12, 196608, 2, -65524, 327680, 0, -65525, 196608, 2, 262163, 196608, 1, 65555, 196608, 1)
 layer_2/name = "Inner Walls"
 layer_2/tile_data = PackedInt32Array(327691, 0, 6, 327690, 0, 6, 327689, 0, 6, 327688, 0, 6, 327687, 0, 6, 327686, 0, 6, 327685, 0, 7, 393221, 65536, 6, 327692, 393216, 7, -65530, 65536, 6, 6, 65536, 6, 65542, 65536, 6, 131078, 0, 8, 131079, 0, 6, 131080, 0, 6, 131081, 0, 6, 131082, 0, 6, 131083, 0, 6)
-metadata/_edit_lock_ = true
 
 [node name="WallLight" parent="Ground" index="2" instance=ExtResource("4_l5bat")]
 position = Vector2(3330, -476)
@@ -79,6 +82,7 @@ texture_scale = 3.0
 
 [node name="Lights" type="Node2D" parent="." index="3"]
 metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="LightFanAnimation" parent="Lights" index="0" instance=ExtResource("4_huah5")]
 position = Vector2(6795, 1146)
@@ -120,5 +124,8 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitGateArea" index="0"]
 position = Vector2(7583, 1169.75)
 shape = SubResource("RectangleShape2D_yfw6m")
+
+[node name="Item2" parent="." index="8" instance=ExtResource("11_jtcr5")]
+position = Vector2(5912, 1321)
 
 [connection signal="body_entered" from="ExitGateArea" to="." method="_on_exit_gate_area_body_entered"]
