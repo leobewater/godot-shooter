@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cvbd266gvnyid"]
+[gd_scene load_steps=16 format=3 uid="uid://cvbd266gvnyid"]
 
 [ext_resource type="PackedScene" uid="uid://bdkrhht1a0pw7" path="res://scenes/levels/level.tscn" id="1_neitl"]
 [ext_resource type="Script" path="res://scenes/levels/inside.gd" id="2_f3nfq"]
@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://dmhh0tmm7y3po" path="res://graphics/lights/overlays/infrastructure.png" id="5_k7fyb"]
 [ext_resource type="Texture2D" uid="uid://dmr1lrdvrn1wr" path="res://graphics/lights/textures/circle.png" id="6_mdord"]
 [ext_resource type="Texture2D" uid="uid://c22b7ic23u0su" path="res://graphics/lights/overlays/hole.png" id="6_u73qo"]
+[ext_resource type="PackedScene" uid="uid://cv8j0ma84k738" path="res://scenes/objects/bed.tscn" id="7_dy2wj"]
+[ext_resource type="PackedScene" uid="uid://c6dia0erywvg8" path="res://scenes/container/toilet.tscn" id="8_uo25l"]
+[ext_resource type="PackedScene" uid="uid://db0fx3h32qn75" path="res://scenes/container/crate.tscn" id="9_mnkmf"]
 [ext_resource type="PackedScene" uid="uid://bx1t36y05c2v2" path="res://scenes/items/item.tscn" id="11_jtcr5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yfw6m"]
@@ -17,10 +20,6 @@ size = Vector2(302, 764.5)
 
 [node name="Inside" instance=ExtResource("1_neitl")]
 script = ExtResource("2_f3nfq")
-
-[node name="Ground" parent="." index="0"]
-metadata/_edit_lock_ = true
-metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground" index="0"]
 modulate = Color(1, 1, 1, 0.152941)
@@ -68,6 +67,29 @@ position = Vector2(2901, 2188)
 [node name="SimpleLight2" parent="Ground" index="9" instance=ExtResource("5_g0040")]
 position = Vector2(4252, 2102)
 rotation = 3.14159
+
+[node name="Bed" parent="Ground" index="10" instance=ExtResource("7_dy2wj")]
+position = Vector2(4407, 2508)
+
+[node name="Bed2" parent="Ground" index="11" instance=ExtResource("7_dy2wj")]
+position = Vector2(2959, 660)
+rotation = -3.14159
+
+[node name="Bed3" parent="Ground" index="12" instance=ExtResource("7_dy2wj")]
+position = Vector2(2959, -121)
+rotation = -3.14159
+
+[node name="Toilet" parent="Ground" index="13" instance=ExtResource("8_uo25l")]
+position = Vector2(1880, 1260)
+
+[node name="Toilet2" parent="Ground" index="14" instance=ExtResource("8_uo25l")]
+position = Vector2(2318, 2359)
+
+[node name="Toilet3" parent="Ground" index="15" instance=ExtResource("8_uo25l")]
+position = Vector2(4243, -352)
+
+[node name="Crate" parent="Ground" index="16" instance=ExtResource("9_mnkmf")]
+position = Vector2(2822, 1719)
 
 [node name="Lights" type="Node2D" parent="." index="3"]
 metadata/_edit_lock_ = true
