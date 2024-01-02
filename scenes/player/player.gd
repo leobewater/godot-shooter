@@ -62,11 +62,6 @@ func _process(_delta):
 func add_item(type: String) -> void:
 	#print('player scene item type: ', type)
 	
-	if type == 'laser':
-		Globals.laser_amount += 5
-	elif type == 'grenade':
-		Globals.grenade_amount += 1
-	
 	# emit signal to update ui at level scene
 	update_stats.emit()
 

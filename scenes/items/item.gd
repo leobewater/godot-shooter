@@ -24,7 +24,11 @@ func _process(delta):
 
 func _on_body_entered(body):
 	# collides with player
-	body.add_item(type)
-	if type == 'health':
+	if type == 'laser':
+		Globals.laser_amount += 5
+	elif type == 'grenade':
+		Globals.grenade_amount += 1
+	elif type == 'health':
 		Globals.health += 10
+		
 	queue_free()
