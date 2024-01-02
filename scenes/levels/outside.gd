@@ -1,6 +1,6 @@
 extends LevelParent
 
-var inside_level_scene: PackedScene = preload("res://scenes/levels/inside.tscn")
+#var inside_level_scene: PackedScene = preload("res://scenes/levels/inside.tscn")
 
 
 func _on_gate_player_entered_gate(body):
