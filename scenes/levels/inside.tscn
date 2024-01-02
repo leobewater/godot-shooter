@@ -196,6 +196,20 @@ texture = ExtResource("20_xarj0")
 position = Vector2(1475, 2968)
 texture = ExtResource("21_8pa25")
 
+[node name="StaticBody2D" type="StaticBody2D" parent="Infestation" index="8"]
+collision_layer = 4
+collision_mask = 11
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Infestation/StaticBody2D" index="0"]
+polygon = PackedVector2Array(230, 1998, 315, 2000, 306, 2395, 270, 2402)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Infestation" index="9"]
+collision_layer = 4
+collision_mask = 11
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Infestation/StaticBody2D2" index="0"]
+polygon = PackedVector2Array(1761, 2200, 1911, 2210, 1975, 2250, 2059, 2317, 2118, 2417, 2132, 2467, 2125, 2559, 2087, 2566, 2068, 2507, 2051, 2429, 2006, 2362, 1952, 2324, 1880, 2276, 1809, 2267)
+
 [node name="Lights" type="Node2D" parent="." index="3"]
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
