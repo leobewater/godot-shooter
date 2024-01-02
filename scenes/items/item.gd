@@ -5,7 +5,7 @@ extends Area2D
 var rotation_speed: int = 4
 # give laser more chances
 var available_options = ['laser', 'laser', 'laser', 'laser', 'grenade', 'health']
-var type = available_options.pick_random()
+var type = 'health' # available_options.pick_random()
 
 
 func _ready():
@@ -25,4 +25,6 @@ func _process(delta):
 func _on_body_entered(body):
 	# collides with player
 	body.add_item(type)
+	if type == 'health':
+		Globals.health += 10
 	queue_free()
