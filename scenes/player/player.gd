@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 signal laser(pos, direction)
 signal grenade(pos, direction)
-signal update_stats()
 
 @onready var gpu_particles_2d = $GPUParticles2D
 
@@ -57,13 +56,6 @@ func _process(_delta):
 		# emit signal and marker 0 global position
 		var pos = $LaserStartPositions.get_children()[0].global_position
 		grenade.emit(pos, player_direction)
-
-
-func add_item(type: String) -> void:
-	#print('player scene item type: ', type)
-	
-	# emit signal to update ui at level scene
-	update_stats.emit()
 
 
 # when timer is finished
