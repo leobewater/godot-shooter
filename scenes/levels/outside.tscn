@@ -132,4 +132,16 @@ rotation = 3.14159
 [node name="Crate" parent="." index="7" instance=ExtResource("17_et0uv")]
 position = Vector2(563, 575)
 
+[node name="Crate2" parent="." index="8" instance=ExtResource("17_et0uv")]
+position = Vector2(1563, 592)
+rotation = 2.37365
+
+[node name="Crate3" parent="." index="9" instance=ExtResource("17_et0uv")]
+position = Vector2(639, 1368)
+rotation = -0.453786
+
+[node name="Crate4" parent="." index="10" instance=ExtResource("17_et0uv")]
+position = Vector2(1614, 1652)
+rotation = 1.5708
+
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]

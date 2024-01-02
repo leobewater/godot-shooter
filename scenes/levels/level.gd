@@ -12,8 +12,15 @@ var grenade_scene: PackedScene = preload("res://scenes/projectiles/grenade.tscn"
 
 
 func _ready():
-	print("level")
-	print(Globals.laser_amount)
+	# get all item_containers named "Container" group from level and add listeners
+	for container in get_tree().get_nodes_in_group("Container"):
+		#print(container)
+		# set up signal listeners on item_container
+		container.connect("open", _on_container_opened)
+	
+
+func _on_container_opened(pos, direction):
+	print("container opened", pos, direction)
 	
 	
 func _on_player_laser(pos, direction):

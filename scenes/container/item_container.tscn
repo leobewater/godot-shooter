@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://ItemContainer.gd" id="1_f8msh"]
 
-[node name="ItemContainer" type="StaticBody2D"]
+[node name="ItemContainer" type="StaticBody2D" groups=["Container"]]
 script = ExtResource("1_f8msh")
 
 [node name="BaseSprite" type="Sprite2D" parent="."]
