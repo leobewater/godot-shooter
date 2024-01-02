@@ -4,11 +4,13 @@ class_name LevelParent
 @onready var camera_2d = $Player/Camera2D
 @onready var player = $Player
 @onready var ui = $UI
-
+@onready var items = $Items
 
 # preload laser scene
 var laser_scene: PackedScene = preload("res://scenes/projectiles/laser.tscn")
 var grenade_scene: PackedScene = preload("res://scenes/projectiles/grenade.tscn")
+var item_scene: PackedScene = preload("res://scenes/items/item.tscn")
+
 
 
 func _ready():
@@ -21,6 +23,11 @@ func _ready():
 
 func _on_container_opened(pos, direction):
 	print("container opened", pos, direction)
+	# spawn item
+	var item = item_scene.instantiate()
+	item.position = pos
+	item.direction = direction
+	items.call_deferred("add_child", item)
 	
 	
 func _on_player_laser(pos, direction):
@@ -54,24 +61,5 @@ func _on_player_grenade(pos, direction):
 	ui.update_grenade_text()
 
 
-# when player enters the house
-func _on_house_player_entered():
-	print("Player has entered house in level")
-	# by default multiple tween_property play in sequences, use set_parallel to run them all at once
-	var tween = get_tree().create_tween()
-	tween.set_parallel(true)
-	
-	# changing player's alpha value with a initial value
-	#tween.tween_property(player, 'modulate:a', 0, 2).from(0.5)
-	
-	# camera zooom in with tween with custom transition
-	tween.tween_property(camera_2d, 'zoom', Vector2(1, 1), 1).set_trans(Tween.TRANS_QUAD)
 
-
-# when player exits the house
-func _on_house_player_exited():
-	print("Player has exited the house in level")
-	# camera zooom out with tween
-	var tween = get_tree().create_tween()
-	tween.tween_property(camera_2d, 'zoom', Vector2(0.6, 0.6), 1)
 
