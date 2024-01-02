@@ -20,10 +20,12 @@ func _ready():
 	elif type == 'health':
 		sprite_2d.modulate = Color(0.1, 0.8, 0.1)
 	
-	# tween move item
+	# tween move and scale item
 	var target_pos = position + direction * distance
-	var movement_tween = create_tween()
-	movement_tween.tween_property(self, 'position', target_pos, 0.5)
+	var tween = create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(self, 'position', target_pos, 0.5)
+	tween.tween_property(self, 'scale', Vector2(1,1), 0.3).from(Vector2(0,0)) # set start value
 
 
 func _process(delta):
