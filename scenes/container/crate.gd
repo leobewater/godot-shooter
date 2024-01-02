@@ -1,4 +1,7 @@
 extends ItemContainer
 
+
+# spawn items
+
 func hit():
-	print("crate")
+	print("crate current_direction: ", current_direction)

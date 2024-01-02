@@ -22,7 +22,7 @@ func _process(delta):
 	rotation += rotation_speed * delta
 
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	# collides with player
 	if type == 'laser':
 		Globals.laser_amount += 5

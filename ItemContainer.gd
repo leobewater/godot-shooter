@@ -1,10 +1,7 @@
 extends StaticBody2D
+
 class_name ItemContainer
 
-
-func _ready():
-	print("item_container objects created")
-	
-	
-func hit(): 
-	print("object")
+# run this after the ready() method which already applied the rotation set in the trees
+# so when we spawn the item, it will follow the parent item's rotation
+@onready var current_direction: Vector2 = Vector2.DOWN.rotated(rotation)
