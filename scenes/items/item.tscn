@@ -21,3 +21,5 @@ shape = SubResource("CircleShape2D_6puk5")
 energy = 0.5
 texture = ExtResource("2_vg7sw")
 texture_scale = 0.4
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
