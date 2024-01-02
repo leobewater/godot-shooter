@@ -116,10 +116,10 @@ position = Vector2(-205, 471)
 [node name="LightFanAnimation" parent="Ground" index="13" instance=ExtResource("13_q4dpo")]
 position = Vector2(-1909, 1559)
 
-[node name="Gate" parent="." index="1" instance=ExtResource("2_ve75d")]
+[node name="Gate" parent="." index="2" instance=ExtResource("2_ve75d")]
 position = Vector2(156, -201)
 
-[node name="Player" parent="." index="4"]
+[node name="Player" parent="." index="5"]
 position = Vector2(791, 288)
 metadata/_edit_group_ = true
 

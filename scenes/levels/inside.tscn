@@ -1,18 +1,22 @@
-[gd_scene load_steps=16 format=3 uid="uid://cvbd266gvnyid"]
+[gd_scene load_steps=20 format=3 uid="uid://cvbd266gvnyid"]
 
 [ext_resource type="PackedScene" uid="uid://bdkrhht1a0pw7" path="res://scenes/levels/level.tscn" id="1_neitl"]
 [ext_resource type="Script" path="res://scenes/levels/inside.gd" id="2_f3nfq"]
 [ext_resource type="Texture2D" uid="uid://dsjbgrrnkilhf" path="res://graphics/ground/dirt.png" id="2_i5cmh"]
 [ext_resource type="TileSet" uid="uid://dblsagdnvogp" path="res://scenes/levels/house.tres" id="2_yqgmr"]
+[ext_resource type="Texture2D" uid="uid://d4e2u43ch3r3x" path="res://graphics/decals/brushes/brush047.png" id="3_87821"]
 [ext_resource type="PackedScene" uid="uid://v8j1toqn1jlr" path="res://scenes/objects/light_fan_animation.tscn" id="4_huah5"]
+[ext_resource type="Texture2D" uid="uid://dd3tim03pno3t" path="res://graphics/decals/brushes/brush051.png" id="4_kxsra"]
 [ext_resource type="PackedScene" uid="uid://sgx7rts5paub" path="res://scenes/objects/wall_light.tscn" id="4_l5bat"]
 [ext_resource type="PackedScene" uid="uid://casv578bwmd1t" path="res://scenes/objects/simple_light.tscn" id="5_g0040"]
 [ext_resource type="Texture2D" uid="uid://dmhh0tmm7y3po" path="res://graphics/lights/overlays/infrastructure.png" id="5_k7fyb"]
+[ext_resource type="Texture2D" uid="uid://dlvc4u1jg3lt1" path="res://graphics/decals/brushes/brush053.png" id="5_tiri3"]
 [ext_resource type="Texture2D" uid="uid://dmr1lrdvrn1wr" path="res://graphics/lights/textures/circle.png" id="6_mdord"]
 [ext_resource type="Texture2D" uid="uid://c22b7ic23u0su" path="res://graphics/lights/overlays/hole.png" id="6_u73qo"]
 [ext_resource type="PackedScene" uid="uid://cv8j0ma84k738" path="res://scenes/objects/bed.tscn" id="7_dy2wj"]
 [ext_resource type="PackedScene" uid="uid://c6dia0erywvg8" path="res://scenes/container/toilet.tscn" id="8_uo25l"]
 [ext_resource type="PackedScene" uid="uid://db0fx3h32qn75" path="res://scenes/container/crate.tscn" id="9_mnkmf"]
+[ext_resource type="PackedScene" uid="uid://bmp6cd2i8bb7y" path="res://scenes/objects/steam_vent.tscn" id="10_dnvab"]
 [ext_resource type="PackedScene" uid="uid://bx1t36y05c2v2" path="res://scenes/items/item.tscn" id="11_jtcr5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yfw6m"]
@@ -21,8 +25,29 @@ size = Vector2(302, 764.5)
 [node name="Inside" instance=ExtResource("1_neitl")]
 script = ExtResource("2_f3nfq")
 
+[node name="Decals" parent="." index="0"]
+modulate = Color(1, 1, 1, 0.0862745)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decals" index="0"]
+position = Vector2(4254, 1550)
+texture = ExtResource("3_87821")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Decals" index="1"]
+position = Vector2(-187, 1443)
+texture = ExtResource("4_kxsra")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Decals" index="2"]
+position = Vector2(1634, 2653)
+scale = Vector2(1.97737, 1.76582)
+texture = ExtResource("5_tiri3")
+
+[node name="Ground" parent="." index="1"]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
 [node name="Sprite2D" type="Sprite2D" parent="Ground" index="0"]
-modulate = Color(1, 1, 1, 0.152941)
+modulate = Color(1, 1, 1, 0.741176)
+z_index = -2
 texture_repeat = 2
 position = Vector2(2944, 2092)
 texture = ExtResource("2_i5cmh")
@@ -30,6 +55,7 @@ region_enabled = true
 region_rect = Rect2(-2123.82, -805.1, 15000, 10000)
 
 [node name="TileMap" type="TileMap" parent="Ground" index="1"]
+z_index = -1
 position = Vector2(-11, 0)
 tile_set = ExtResource("2_yqgmr")
 format = 2
@@ -91,6 +117,45 @@ position = Vector2(4243, -352)
 [node name="Crate" parent="Ground" index="16" instance=ExtResource("9_mnkmf")]
 position = Vector2(2822, 1719)
 
+[node name="Crate2" parent="Ground" index="17" instance=ExtResource("9_mnkmf")]
+position = Vector2(2227, -297)
+
+[node name="Crate3" parent="Ground" index="18" instance=ExtResource("9_mnkmf")]
+position = Vector2(528, -263)
+
+[node name="Crate4" parent="Ground" index="19" instance=ExtResource("9_mnkmf")]
+position = Vector2(-1016, 443)
+
+[node name="Crate5" parent="Ground" index="20" instance=ExtResource("9_mnkmf")]
+position = Vector2(-1016, 443)
+
+[node name="Crate6" parent="Ground" index="21" instance=ExtResource("9_mnkmf")]
+position = Vector2(-996, 2212)
+
+[node name="Crate7" parent="Ground" index="22" instance=ExtResource("9_mnkmf")]
+position = Vector2(181, 2663)
+
+[node name="Crate8" parent="Ground" index="23" instance=ExtResource("9_mnkmf")]
+position = Vector2(1217, 1896)
+
+[node name="Crate9" parent="Ground" index="24" instance=ExtResource("9_mnkmf")]
+position = Vector2(3040, 2374)
+
+[node name="Crate10" parent="Ground" index="25" instance=ExtResource("9_mnkmf")]
+position = Vector2(3040, 2374)
+
+[node name="SteamVent" parent="Ground" index="26" instance=ExtResource("10_dnvab")]
+position = Vector2(2356, 848)
+
+[node name="SteamVent2" parent="Ground" index="27" instance=ExtResource("10_dnvab")]
+position = Vector2(4664, 80)
+
+[node name="SteamVent3" parent="Ground" index="28" instance=ExtResource("10_dnvab")]
+position = Vector2(3893, 3436)
+
+[node name="SteamVent4" parent="Ground" index="29" instance=ExtResource("10_dnvab")]
+position = Vector2(-315, 2257)
+
 [node name="Lights" type="Node2D" parent="." index="3"]
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
@@ -131,12 +196,16 @@ blend_mode = 1
 metadata/_edit_lock_ = true
 
 [node name="ExitGateArea" type="Area2D" parent="." index="5"]
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitGateArea" index="0"]
 position = Vector2(7583, 1169.75)
 shape = SubResource("RectangleShape2D_yfw6m")
 
-[node name="Player" parent="." index="6"]
+[node name="Items" parent="." index="6"]
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." index="7"]
 position = Vector2(6991, 1225)
 metadata/_edit_group_ = true
 
