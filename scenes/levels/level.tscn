@@ -12,6 +12,8 @@ script = ExtResource("1_6xh1h")
 
 [node name="Ground" type="Node2D" parent="."]
 
+[node name="Infestation" type="Node2D" parent="."]
+
 [node name="Projectiles" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
