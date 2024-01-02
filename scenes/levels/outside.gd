@@ -10,4 +10,5 @@ func _on_gate_player_entered_gate(body):
 	var tween = create_tween()
 	tween.tween_property(player, "speed", 0, 0.5)
 	#get_tree().change_scene_to_file("res://scenes/levels/inside.tscn")
-	get_tree().change_scene_to_packed(inside_level_scene)
+	#get_tree().change_scene_to_packed(inside_level_scene)
+	TransitionLayer.change_scene("res://scenes/levels/inside.tscn")
