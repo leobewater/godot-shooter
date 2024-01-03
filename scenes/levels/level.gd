@@ -20,6 +20,10 @@ func _ready():
 		# set up signal listeners on item_container
 		container.connect("open", _on_container_opened)
 	
+	# get all scouts on level to shoot laser
+	for scout in get_tree().get_nodes_in_group("Scouts"):
+		scout.connect('laser', _on_scout_laser)
+		
 
 func _on_container_opened(pos, direction):
 	print("container opened", pos, direction)
@@ -31,7 +35,15 @@ func _on_container_opened(pos, direction):
 	
 	
 func _on_player_laser(pos, direction):
-	# create instance of laser scene
+	create_laser(pos, direction)
+
+
+func _on_scout_laser(pos, direction):
+	print("scout is shooting")
+	create_laser(pos, direction)
+	
+	
+func create_laser(pos, direction):
 	var laser = laser_scene.instantiate() as Area2D
 	
 	# update laser position and direction
@@ -41,11 +53,10 @@ func _on_player_laser(pos, direction):
 	
 	# add laser instance to a Node2D
 	$Projectiles.add_child(laser)
-	
-	# update UI label
+		# update UI label
 	ui.update_laser_text()
-
-
+	
+	
 func _on_player_grenade(pos, direction):
 	# create instance of grenade scene and as will help with intellisense
 	var grenade = grenade_scene.instantiate() as RigidBody2D

@@ -20,6 +20,9 @@ func _process(_delta):
 	velocity = direction * speed
 	move_and_slide()
 	
+	# store player position to globals for enemies to look at
+	Globals.player_pos = global_position
+	
 	# rotate player by facing the mouse pointer
 	look_at(get_global_mouse_position())
 	
