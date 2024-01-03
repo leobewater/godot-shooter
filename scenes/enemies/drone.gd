@@ -11,7 +11,8 @@ var speed: int = 0
 var speed_multiplier: int = 1
 var vulnerable: bool = true
 var health: int  = 50
-
+var explosion_active: bool = false
+var explosion_radius: int = 400
 
 func _ready():
 	explosion.hide()
@@ -26,6 +27,15 @@ func _process(delta):
 		var collision = move_and_collide(velocity * delta)
 		if collision:
 			animation_player.play("explosion")
+			explosion_active = true
+			
+	if explosion_active:
+		# hit all targets within the radius when explode
+		var targets = get_tree().get_nodes_in_group("Container") + get_tree().get_nodes_in_group("Entity")
+		for target in targets:
+			var in_range = target.global_position.distance_to(global_position) < explosion_radius
+			if "hit" in target and in_range:
+				target.hit()
 
 
 func hit():
@@ -37,6 +47,8 @@ func hit():
 		sprite_2d.material.set_shader_parameter('progress', 1)
 	if health <= 0:
 		animation_player.play("explosion")
+		explosion_active = true
+
 
 # used in animation
 func stop_movement():
