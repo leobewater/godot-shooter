@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bd6r0eebp404u" path="res://graphics/car/turret.png" id="3_dhjsc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_blmsg"]
-radius = 944.577
+radius = 680.0
 
 [node name="Car" type="PathFollow2D"]
 script = ExtResource("1_tk6lo")
@@ -22,17 +22,21 @@ position = Vector2(53, 0)
 rotation = 1.5708
 texture = ExtResource("1_biax7")
 
+[node name="NoticeArea" type="Area2D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NoticeArea"]
+shape = SubResource("CircleShape2D_blmsg")
+
 [node name="Turret" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Turret"]
 rotation = 1.5708
 texture = ExtResource("3_dhjsc")
 
-[node name="NoticeArea" type="Area2D" parent="."]
-collision_layer = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NoticeArea"]
-shape = SubResource("CircleShape2D_blmsg")
+[node name="RayCast2D" type="RayCast2D" parent="Turret"]
+position = Vector2(112, -26)
+target_position = Vector2(570, 2.08165e-12)
 
 [connection signal="body_entered" from="NoticeArea" to="." method="_on_notice_area_body_entered"]
 [connection signal="body_exited" from="NoticeArea" to="." method="_on_notice_area_body_exited"]
