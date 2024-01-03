@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://irxie4c7xcmu"]
+[gd_scene load_steps=3 format=3 uid="uid://irxie4c7xcmu"]
 
 [ext_resource type="Texture2D" uid="uid://dlocat1vsbc11" path="res://graphics/car/main.png" id="1_biax7"]
+[ext_resource type="Script" path="res://scenes/enemies/car.gd" id="1_tk6lo"]
 
 [node name="Car" type="PathFollow2D"]
+script = ExtResource("1_tk6lo")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 
