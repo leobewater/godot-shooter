@@ -10,6 +10,10 @@ var vulnerable: bool = true
 var player_near: bool = false
 
 
+func hit():
+	print("Bug was hit")
+	
+
 func _process(delta):
 	var direction = (Globals.player_pos - position).normalized()
 	velocity = direction * speed
