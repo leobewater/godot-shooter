@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c38xmaw58bon6"]
+
+[ext_resource type="Texture2D" uid="uid://cvp8t4hedlmx3" path="res://graphics/enemies/scout.png" id="1_u24m8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2nrxy"]
+radius = 45.607
+
+[node name="Scout" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(40, 24)
+rotation = 1.5708
+texture = ExtResource("1_u24m8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2nrxy")

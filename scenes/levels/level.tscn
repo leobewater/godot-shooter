@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdkrhht1a0pw7"]
+[gd_scene load_steps=5 format=3 uid="uid://bdkrhht1a0pw7"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_6xh1h"]
+[ext_resource type="PackedScene" uid="uid://c38xmaw58bon6" path="res://scenes/enemies/scout.tscn" id="2_t22yn"]
 [ext_resource type="PackedScene" uid="uid://bo6u5rh7c1tyd" path="res://scenes/ui/ui.tscn" id="3_llpxn"]
 [ext_resource type="PackedScene" uid="uid://be80jbs1qo0h5" path="res://scenes/player/player.tscn" id="4_tflcj"]
 
@@ -16,6 +17,10 @@ script = ExtResource("1_6xh1h")
 
 [node name="Projectiles" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Scout" parent="Enemies" instance=ExtResource("2_t22yn")]
 
 [node name="Items" type="Node2D" parent="."]
 
