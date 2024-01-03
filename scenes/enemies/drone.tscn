@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bbkou7aivgfxr"]
+[gd_scene load_steps=6 format=3 uid="uid://bbkou7aivgfxr"]
 
 [ext_resource type="Script" path="res://scenes/enemies/drone.gd" id="1_756jk"]
 [ext_resource type="Texture2D" uid="uid://wr1f8j3g5th8" path="res://graphics/enemies/drone.png" id="1_u86qr"]
+[ext_resource type="Texture2D" uid="uid://b4qh5fey8hxkt" path="res://graphics/explosions/explosion_3.png" id="3_2wy1f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hxc1b"]
 radius = 75.06
@@ -28,6 +29,12 @@ shape = SubResource("CircleShape2D_1l5h2")
 
 [node name="HitTimer" type="Timer" parent="."]
 wait_time = 0.2
+
+[node name="Explosion" type="Sprite2D" parent="."]
+texture = ExtResource("3_2wy1f")
+hframes = 8
+vframes = 8
+frame = 23
 
 [connection signal="body_entered" from="NoticeArea" to="." method="_on_notice_area_body_entered"]
 [connection signal="timeout" from="HitTimer" to="." method="_on_hit_timer_timeout"]

@@ -1,9 +1,11 @@
 extends CharacterBody2D
 
+@onready var hit_timer = $HitTimer
+@onready var explosion = $Explosion
+@onready var animation_player = $AnimationPlayer
+
 var active: bool = false
 var speed: int = 400
-
-@onready var hit_timer = $HitTimer
 
 var vulnerable: bool = true
 var health: int  = 50
