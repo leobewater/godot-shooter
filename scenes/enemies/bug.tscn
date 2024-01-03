@@ -1,6 +1,7 @@
-[gd_scene load_steps=35 format=3 uid="uid://dfw84k03fmh54"]
+[gd_scene load_steps=36 format=3 uid="uid://dfw84k03fmh54"]
 
 [ext_resource type="Texture2D" uid="uid://c8o0ivn6iehhx" path="res://graphics/enemies/bug/attack/00010.png" id="1_s2osq"]
+[ext_resource type="Script" path="res://scenes/enemies/bug.gd" id="1_t4m8y"]
 [ext_resource type="Texture2D" uid="uid://bpgxk206xgflu" path="res://graphics/enemies/bug/attack/00011.png" id="2_85rtm"]
 [ext_resource type="Texture2D" uid="uid://bk50tk38h41ku" path="res://graphics/enemies/bug/attack/00012.png" id="3_mq1dp"]
 [ext_resource type="Texture2D" uid="uid://dgjtt2m11ccgv" path="res://graphics/enemies/bug/attack/00013.png" id="4_mpqhu"]
@@ -147,6 +148,7 @@ radius = 105.076
 [node name="Bug" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 11
+script = ExtResource("1_t4m8y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = 1.5708
@@ -171,3 +173,8 @@ collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 shape = SubResource("CircleShape2D_hnnji")
+
+[connection signal="body_entered" from="NoticeArea" to="." method="_on_notice_area_body_entered"]
+[connection signal="body_exited" from="NoticeArea" to="." method="_on_notice_area_body_exited"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]
