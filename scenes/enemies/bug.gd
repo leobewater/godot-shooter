@@ -8,11 +8,18 @@ var active: bool = false
 var speed: int = 300
 var vulnerable: bool = true
 var player_near: bool = false
+var health = 20
 
 
 func hit():
-	print("Bug was hit")
-	
+	if vulnerable:
+		vulnerable = false
+		hit_timer.start()
+		print("Bug was hit")
+		health -= 10
+	if health <= 0:
+		queue_free()
+
 
 func _process(delta):
 	var direction = (Globals.player_pos - position).normalized()
@@ -51,7 +58,7 @@ func _on_animated_sprite_2d_animation_finished():
 		
 
 func _on_hit_timer_timeout():
-	pass # Replace with function body.
+	vulnerable = true
 
 
 func _on_attack_timer_timeout():
