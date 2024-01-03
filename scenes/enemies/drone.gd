@@ -7,21 +7,23 @@ extends CharacterBody2D
 
 var active: bool = false
 var speed: int = 400
-
 var vulnerable: bool = true
 var health: int  = 50
+
 
 func _ready():
 	explosion.hide()
 	sprite_2d.show()
 
 
-func _process(_delta):
+func _process(delta):
 	if active:
 		look_at(Globals.player_pos)
 		var direction = (Globals.player_pos - position).normalized()
 		velocity = direction * speed
-		move_and_slide()
+		var collision = move_and_collide(velocity * delta)
+		if collision:
+			animation_player.play("explosion")
 
 
 func hit():
