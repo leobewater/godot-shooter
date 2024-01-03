@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://irxie4c7xcmu"]
+[gd_scene load_steps=8 format=3 uid="uid://irxie4c7xcmu"]
 
 [ext_resource type="Texture2D" uid="uid://dlocat1vsbc11" path="res://graphics/car/main.png" id="1_biax7"]
 [ext_resource type="Script" path="res://scenes/enemies/car.gd" id="1_tk6lo"]
 [ext_resource type="Texture2D" uid="uid://bd6r0eebp404u" path="res://graphics/car/turret.png" id="3_dhjsc"]
+[ext_resource type="Texture2D" uid="uid://nf00ranbf4b3" path="res://graphics/explosions/gun.png" id="4_hb1p7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_blmsg"]
 radius = 680.0
@@ -88,6 +89,7 @@ target_position = Vector2(570, 2.08165e-12)
 
 [node name="Line2D" type="Line2D" parent="Turret/RayCast2D"]
 points = PackedVector2Array(0, 1, 565, 1)
+width = 2.08165e-12
 default_color = Color(0.662745, 0, 0.341176, 0.658824)
 
 [node name="RayCast2D2" type="RayCast2D" parent="Turret"]
@@ -96,7 +98,22 @@ target_position = Vector2(570, 2.08165e-12)
 
 [node name="Line2D" type="Line2D" parent="Turret/RayCast2D2"]
 points = PackedVector2Array(0, 0, 563, 1)
+width = 2.08165e-12
 default_color = Color(0.662745, 0, 0.341176, 0.658824)
+
+[node name="GunFire1" type="Sprite2D" parent="Turret"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(185, -29)
+rotation = 1.5708
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_hb1p7")
+
+[node name="GunFire2" type="Sprite2D" parent="Turret"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(185, 28)
+rotation = 1.5708
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_hb1p7")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
