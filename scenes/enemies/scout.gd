@@ -23,8 +23,8 @@ func hit():
 		health -= 10
 		vulnerable = false
 		hit_timer.start()
-		if health <= 0:
-			queue_free()
+	if health <= 0:
+		queue_free()
 		
 	
 func _process(_delta):
