@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@onready var sprite_2d = $Sprite2D
 @onready var hit_timer = $HitTimer
 @onready var explosion = $Explosion
 @onready var animation_player = $AnimationPlayer
@@ -10,12 +11,18 @@ var speed: int = 400
 var vulnerable: bool = true
 var health: int  = 50
 
+func _ready():
+	explosion.hide()
+	sprite_2d.show()
+
+
 func _process(_delta):
 	if active:
 		look_at(Globals.player_pos)
 		var direction = (Globals.player_pos - position).normalized()
 		velocity = direction * speed
 		move_and_slide()
+		animation_player.play("explosion")
 
 
 func hit():
