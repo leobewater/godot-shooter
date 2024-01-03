@@ -40,5 +40,6 @@ func _on_body_entered(_body):
 		Globals.grenade_amount += 1
 	elif type == 'health':
 		Globals.health += 10
-		
-	#queue_free()
+	
+	sprite_2d.hide()
+	queue_free()

@@ -7,12 +7,17 @@ extends CharacterBody2D
 var player_nearby: bool = false
 var can_laser: bool = true
 var right_gun_use: bool = true
-
+var health: int = 30
 
 signal laser(pos, direction)
 
+
+# grenade is calling this multiple time per sec
 func hit():
 	print("scout was hit")
+	health -= 10
+	if health <= 0:
+		queue_free()
 	
 	
 func _process(_delta):
