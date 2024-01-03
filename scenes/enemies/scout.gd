@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var marker_2d = $LaserSpawnPositions/Marker2D
 @onready var laser_timer = $Timers/LaserTimer
 @onready var hit_timer = $Timers/HitTimer
+@onready var sprite_2d = $Sprite2D
 
 
 var player_nearby: bool = false
@@ -23,6 +24,8 @@ func hit():
 		health -= 10
 		vulnerable = false
 		hit_timer.start()
+		# adjust exposed shader variables
+		sprite_2d.material.set_shader_parameter("progress", 1)
 	if health <= 0:
 		queue_free()
 		
@@ -56,3 +59,4 @@ func _on_laser_timer_timeout():
 
 func _on_hit_timer_timeout():
 	vulnerable = true
+	sprite_2d.material.set_shader_parameter("progress", 0)
