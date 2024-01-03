@@ -38,5 +38,19 @@ texture = ExtResource("3_dhjsc")
 position = Vector2(112, -26)
 target_position = Vector2(570, 2.08165e-12)
 
+[node name="Line2D" type="Line2D" parent="Turret/RayCast2D"]
+points = PackedVector2Array(0, 1, 565, 1)
+width = 1.0
+default_color = Color(0.662745, 0, 0.341176, 0.658824)
+
+[node name="RayCast2D2" type="RayCast2D" parent="Turret"]
+position = Vector2(112, 31)
+target_position = Vector2(570, 2.08165e-12)
+
+[node name="Line2D" type="Line2D" parent="Turret/RayCast2D2"]
+points = PackedVector2Array(0, 0)
+width = 1.0
+default_color = Color(0.662745, 0, 0.341176, 0.658824)
+
 [connection signal="body_entered" from="NoticeArea" to="." method="_on_notice_area_body_entered"]
 [connection signal="body_exited" from="NoticeArea" to="." method="_on_notice_area_body_exited"]
