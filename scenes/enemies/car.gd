@@ -12,7 +12,11 @@ extends PathFollow2D
 
 var player_near: bool = false
 
-
+# being called in animation
+func fire():
+	Globals.health -= 20
+	
+	
 func _ready():
 	# use code to generate line for line2
 	#line2.add_point(ray_cast_2.target_position)
