@@ -12,6 +12,10 @@ var can_grenade: bool = true
 var speed: int = max_speed
 
 
+func hit():
+	print("Player was hit")
+
+
 func _process(_delta):
 	# Go to Project and create an input map first
 	var direction = Input.get_vector("left", "right", "up", "down")
