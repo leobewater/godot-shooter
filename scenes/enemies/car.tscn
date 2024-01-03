@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://irxie4c7xcmu"]
+
+[ext_resource type="Texture2D" uid="uid://dlocat1vsbc11" path="res://graphics/car/main.png" id="1_biax7"]
+
+[node name="Car" type="PathFollow2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D"]
+polygon = PackedVector2Array(-177, -168, -119, -180, -55, -174, -42, -172, 4, -135, 60, -168, 121, -174, 193, -163, 221, -127, 242, -80, 241, 85, 227, 126, 188, 176, 155, 175, 97, 176, 58, 171, 0, 131, -46, 179, -114, 188, -176, 181, -182, 129, -178, 77, -182, 59, -222, 54, -246, 36, -245, -33, -234, -45, -220, -52, -179, -58, -177, -85)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(53, 0)
+rotation = 1.5708
+texture = ExtResource("1_biax7")

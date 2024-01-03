@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ynan31edrx6i"]
+[gd_scene load_steps=22 format=3 uid="uid://ynan31edrx6i"]
 
 [ext_resource type="PackedScene" uid="uid://bdkrhht1a0pw7" path="res://scenes/levels/level.tscn" id="1_aeg8c"]
 [ext_resource type="Texture2D" uid="uid://dx3urtars2h22" path="res://graphics/ground/stones.png" id="2_0q3w5"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bmp6cd2i8bb7y" path="res://scenes/objects/steam_vent.tscn" id="12_8fgx4"]
 [ext_resource type="PackedScene" uid="uid://v8j1toqn1jlr" path="res://scenes/objects/light_fan_animation.tscn" id="13_q4dpo"]
 [ext_resource type="PackedScene" uid="uid://bbkou7aivgfxr" path="res://scenes/enemies/drone.tscn" id="16_8jpml"]
+[ext_resource type="PackedScene" uid="uid://irxie4c7xcmu" path="res://scenes/enemies/car.tscn" id="17_bvxjt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gtm0f"]
 resource_name = "walls"
@@ -50,6 +51,12 @@ texture_region_size = Vector2i(390, 390)
 tile_size = Vector2i(390, 390)
 sources/0 = SubResource("TileSetAtlasSource_gtm0f")
 sources/1 = SubResource("TileSetAtlasSource_yw407")
+
+[sub_resource type="Curve2D" id="Curve2D_k5sbh"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1088, 596, 0, 0, 0, 0, -2673, 655, 610.94, -678.823, -610.94, 678.823, -3880, 1446, 0, 0, 0, 0, -4638, 2871, -791.96, -1018.23, 791.96, 1018.23, -3880, 4523, -1052.17, -758.018, 1052.17, 758.018, -2578, 6028, 0, 0, 0, 0, -780, 6808, -1346.33, 588.313, 1346.33, -588.313, 1415, 6752, -271.529, 588.313, 271.529, -588.313, 2909, 5643, 961.665, 984.293, -961.665, -984.293, 2558, 3765, 0, 0, 0, 0, 612, 1649, 0, 0, 0, 0, -1088, 596)
+}
+point_count = 12
 
 [node name="Outside" instance=ExtResource("1_aeg8c")]
 script = ExtResource("2_t1heb")
@@ -108,7 +115,7 @@ position = Vector2(-1607, 212)
 texture = ExtResource("10_vmjwp")
 
 [node name="House" parent="Ground" index="11" instance=ExtResource("11_6xmn2")]
-position = Vector2(-546, 4535)
+position = Vector2(-489, 5021)
 rotation = -2.37365
 
 [node name="SteamVent" parent="Ground" index="12" instance=ExtResource("12_8fgx4")]
@@ -129,6 +136,14 @@ metadata/_edit_lock_ = true
 [node name="Player" parent="." index="7"]
 position = Vector2(1137, 405)
 metadata/_edit_group_ = true
+
+[node name="CarPath" type="Path2D" parent="." index="9"]
+position = Vector2(-79, -57)
+curve = SubResource("Curve2D_k5sbh")
+
+[node name="Car" parent="CarPath" index="0" instance=ExtResource("17_bvxjt")]
+position = Vector2(-1088, 596)
+rotation = 3.10439
 
 [connection signal="player_entered" from="Ground/House" to="." method="_on_house_player_entered"]
 [connection signal="player_exited" from="Ground/House" to="." method="_on_house_player_exited"]
