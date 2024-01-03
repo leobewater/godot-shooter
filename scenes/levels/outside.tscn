@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ynan31edrx6i"]
+[gd_scene load_steps=20 format=3 uid="uid://ynan31edrx6i"]
 
 [ext_resource type="PackedScene" uid="uid://bdkrhht1a0pw7" path="res://scenes/levels/level.tscn" id="1_aeg8c"]
 [ext_resource type="Texture2D" uid="uid://dx3urtars2h22" path="res://graphics/ground/stones.png" id="2_0q3w5"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cp43hliv3lhrn" path="res://scenes/houses/house.tscn" id="11_6xmn2"]
 [ext_resource type="PackedScene" uid="uid://bmp6cd2i8bb7y" path="res://scenes/objects/steam_vent.tscn" id="12_8fgx4"]
 [ext_resource type="PackedScene" uid="uid://v8j1toqn1jlr" path="res://scenes/objects/light_fan_animation.tscn" id="13_q4dpo"]
+[ext_resource type="PackedScene" uid="uid://dfw84k03fmh54" path="res://scenes/enemies/bug.tscn" id="16_t2ygh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gtm0f"]
 resource_name = "walls"
@@ -119,8 +120,8 @@ position = Vector2(-1909, 1559)
 [node name="Gate" parent="." index="2" instance=ExtResource("2_ve75d")]
 position = Vector2(156, -201)
 
-[node name="Scout" parent="Enemies" index="0"]
-position = Vector2(2877, 1678)
+[node name="Bug" parent="Enemies" index="0" instance=ExtResource("16_t2ygh")]
+position = Vector2(1808, 672)
 
 [node name="Items" parent="." index="6"]
 metadata/_edit_lock_ = true
