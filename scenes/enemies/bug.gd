@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var attack_timer = $Node/AttackTimer
 @onready var hit_timer = $Node/HitTimer
+@onready var hit_particles = $Particles/HitParticles
 
 var active: bool = false
 var speed: int = 300
@@ -18,6 +19,7 @@ func hit():
 		print("Bug was hit")
 		health -= 10
 		animated_sprite_2d.material.set_shader_parameter("progress", 0.8)
+		hit_particles.emitting = true
 		
 	if health <= 0:
 		queue_free()
