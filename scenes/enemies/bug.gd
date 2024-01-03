@@ -17,6 +17,8 @@ func hit():
 		hit_timer.start()
 		print("Bug was hit")
 		health -= 10
+		animated_sprite_2d.material.set_shader_parameter("progress", 0.8)
+		
 	if health <= 0:
 		queue_free()
 
@@ -59,6 +61,7 @@ func _on_animated_sprite_2d_animation_finished():
 
 func _on_hit_timer_timeout():
 	vulnerable = true
+	animated_sprite_2d.material.set_shader_parameter("progress", 0.0)
 
 
 func _on_attack_timer_timeout():

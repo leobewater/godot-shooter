@@ -1,8 +1,9 @@
-[gd_scene load_steps=36 format=3 uid="uid://dfw84k03fmh54"]
+[gd_scene load_steps=38 format=3 uid="uid://dfw84k03fmh54"]
 
 [ext_resource type="Texture2D" uid="uid://c8o0ivn6iehhx" path="res://graphics/enemies/bug/attack/00010.png" id="1_s2osq"]
 [ext_resource type="Script" path="res://scenes/enemies/bug.gd" id="1_t4m8y"]
 [ext_resource type="Texture2D" uid="uid://bpgxk206xgflu" path="res://graphics/enemies/bug/attack/00011.png" id="2_85rtm"]
+[ext_resource type="Shader" path="res://scenes/enemies/bug.gdshader" id="2_gkoxm"]
 [ext_resource type="Texture2D" uid="uid://bk50tk38h41ku" path="res://graphics/enemies/bug/attack/00012.png" id="3_mq1dp"]
 [ext_resource type="Texture2D" uid="uid://dgjtt2m11ccgv" path="res://graphics/enemies/bug/attack/00013.png" id="4_mpqhu"]
 [ext_resource type="Texture2D" uid="uid://dlkdtok78xf54" path="res://graphics/enemies/bug/attack/00014.png" id="5_j71t0"]
@@ -31,6 +32,11 @@
 [ext_resource type="Texture2D" uid="uid://d2ewxlql1bac7" path="res://graphics/enemies/bug/walk/00006.png" id="28_yw240"]
 [ext_resource type="Texture2D" uid="uid://d2xom6ecorybc" path="res://graphics/enemies/bug/walk/00007.png" id="29_6k5i2"]
 [ext_resource type="Texture2D" uid="uid://c0vl7oxo3pub7" path="res://graphics/enemies/bug/walk/00008.png" id="30_difvx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6dcq8"]
+shader = ExtResource("2_gkoxm")
+shader_parameter/color = Color(0.160784, 0.592157, 0.152941, 1)
+shader_parameter/progress = 0.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tdxbo"]
 animations = [{
@@ -151,6 +157,7 @@ collision_mask = 11
 script = ExtResource("1_t4m8y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_6dcq8")
 rotation = 1.5708
 scale = Vector2(0.07, 0.07)
 sprite_frames = SubResource("SpriteFrames_tdxbo")
