@@ -22,7 +22,6 @@ func _process(_delta):
 		var direction = (Globals.player_pos - position).normalized()
 		velocity = direction * speed
 		move_and_slide()
-		animation_player.play("explosion")
 
 
 func hit():
@@ -32,7 +31,8 @@ func hit():
 		hit_timer.start()
 		print("drone got damage")
 	if health <= 0:
-		queue_free()
+		animation_player.play("explosion")
+
 
 func _on_notice_area_body_entered(_body):
 	active = true
