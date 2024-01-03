@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dfw84k03fmh54"]
+[gd_scene load_steps=35 format=3 uid="uid://dfw84k03fmh54"]
 
 [ext_resource type="Texture2D" uid="uid://c8o0ivn6iehhx" path="res://graphics/enemies/bug/attack/00010.png" id="1_s2osq"]
 [ext_resource type="Texture2D" uid="uid://bpgxk206xgflu" path="res://graphics/enemies/bug/attack/00011.png" id="2_85rtm"]
@@ -97,7 +97,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("21_p0x1n")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 30.0
 }, {
@@ -134,10 +134,36 @@ animations = [{
 "speed": 30.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ts8g4"]
+radius = 35.0
+height = 134.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_prhm1"]
+radius = 511.188
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hnnji"]
+radius = 105.076
+
 [node name="Bug" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.07, 0.07)
 sprite_frames = SubResource("SpriteFrames_tdxbo")
-animation = &"walk"
-frame = 8
-frame_progress = 0.770999
+animation = &"attack"
+frame = 20
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ts8g4")
+
+[node name="NoticeArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NoticeArea"]
+shape = SubResource("CircleShape2D_prhm1")
+
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+shape = SubResource("CircleShape2D_hnnji")
