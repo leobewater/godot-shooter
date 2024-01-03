@@ -22,6 +22,7 @@ func hit():
 		hit_particles.emitting = true
 		
 	if health <= 0:
+		await get_tree().create_timer(0.5).timeout
 		queue_free()
 
 

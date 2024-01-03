@@ -230,8 +230,6 @@ texture = ExtResource("33_7fxvi")
 lifetime = 0.5
 one_shot = true
 
-[node name="DeathParticles" type="GPUParticles2D" parent="Particles"]
-
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="NoticeArea" to="." method="_on_notice_area_body_entered"]
 [connection signal="body_exited" from="NoticeArea" to="." method="_on_notice_area_body_exited"]
